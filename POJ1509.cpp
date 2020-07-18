@@ -2,4 +2,4 @@
 using namespace std;
 ////////////////////////QWQ
 
-int
+no int
