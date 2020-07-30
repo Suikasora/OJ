@@ -10,6 +10,7 @@ int map[N][N],dist[N],p[N],n,m;
 bool flag[N];//集合S
 
 void Dijkstra(int u){
+	//
 	for(int i = 1;i <= n;i++){
 		dist[i] = map[u][i];
 		flag[i] = false;
@@ -21,17 +22,18 @@ void Dijkstra(int u){
 	}
 	dist[u] = 0;
 	flag[u] = true;
+	//
 	for(int i = 1;i <= n;i++){
 		int temp = INF,t = u;
+		//寻找离原点u最近的顶点t
 		for(int j=1; j<=n; j++)
 			if( !flag[j] && dist[j] < temp ){
 				t = j;
 				temp = dist[j];
 			}
-
 		if( t==u ) return;
 		flag[t] = true;
-
+		//
 		for( int j = 1;j <= n;j++ )
 			if( !flag[j] && map[t][j] < INF )
 				if( dist[j] > ( dist[t] + map[t][j] ) ){
