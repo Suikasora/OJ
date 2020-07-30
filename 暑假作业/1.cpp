@@ -20,14 +20,16 @@ int rec(int i, int j){
 		res = max(rec(i+1,j),rec(i+1,j-w[i])+v[i]);
 	}
 	//记忆
-	return dp[i][j] = res;
+	dp[i][j] = res;
+	return res;
 }
 int main(void)
 {
-	cin >> n >> W;
+	cin >> n ;
 	for(int i = 0;i < n;i++){
 		cin >> w[i] >> v[i];
 	}
+	cin >> W;
 	//初始化dp数组
 	memset(dp,-1,sizeof(dp));
 	cout << rec(0,W) << endl;
